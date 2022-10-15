@@ -43,12 +43,12 @@ def myfieldline( x0, y0, z0, distance ):
         # Normalise the vector:
         magnitude = np.sqrt( Bx**2 + By**2 + Bz**2 )
         Bnx = Bx / magnitude
-        Bny = # insert your code
-        Bnz = # insert your code
+        Bny = By / magnitude
+        Bnz = Bz / magnitude
         # Now evaluate the field line location at the current point (i)
         X[i] = X[i-1] + Bnx*ds
-        Y[i] = # insert your code
-        Z[i] = # insert your code
+        Y[i] = Y[i-1] + Bny*ds
+        Z[i] = Z[i-1] + Bnz*ds
     
     return X, Y, Z # Return the coordinates of the field line
 x_range = np.linspace(-2,2,4)
@@ -61,7 +61,7 @@ ax = fig.gca(projection='3d')
 for x0 in x_range:
     for y0 in y_range:
         for z0 in z_range:
-            [X,Y,Z] = # add code to generate a field line starting at (x0,y0,z0)
+            [X,Y,Z] = myfieldline(x0, y0, z0, 10)
             ax.plot(X,Y,Z)
             
 plt.show()
