@@ -56,7 +56,7 @@ y_range = np.linspace(-2,2,4)
 z_range = np.linspace(1,2,2)
 
 fig = plt.figure()
-ax = fig.gca(projection='3d')
+ax = fig.add_subplot(projection='3d')
 
 for x0 in x_range:
     for y0 in y_range:
